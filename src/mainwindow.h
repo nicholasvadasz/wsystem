@@ -5,6 +5,7 @@
 #include <QSpinBox>
 #include <QRadioButton>
 #include <QCheckBox>
+#include <QPushButton>
 
 #include "glwidget.h"
 
@@ -28,6 +29,8 @@ private:
     QSlider *p4Slider;
     QSpinBox *p3Box;
     QSpinBox *p4Box;
+
+    QPushButton *exportObj;
 
     QCheckBox *showWireframeNormals;
 
