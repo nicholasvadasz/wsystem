@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 
 #include <QLabel>
+#include <QPushButton>
 #include <QGroupBox>
 #include <iostream>
 
@@ -54,6 +55,9 @@ void MainWindow::setupUI()
     QLabel *width_spacer = new QLabel(); // cheat-y way of adding more width to the QVBoxLayout
     width_spacer->setText("                                               ");
     width_spacer->setFont(font);
+
+    exportObj = new QPushButton();
+    exportObj->setText(QStringLiteral("Export to Obj"));
 
     // Create button controls to toggle 3D shapes
     pointCB = new QRadioButton(); // Point button
@@ -188,6 +192,7 @@ void MainWindow::setupUI()
 
     vLayout->addWidget(param4_label);
     vLayout->addWidget(p4Layout);
+    vLayout->addWidget(exportObj);
     vLayout->addWidget(showWireframeNormals);
 
     // Connects the sliders and number boxes for the parameters
