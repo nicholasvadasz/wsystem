@@ -1,4 +1,6 @@
 #include "Triangle.h"
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 
 // make a const of "base points", 4 vertices making a square base
 
@@ -58,7 +60,6 @@ void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
   if (growthDirection.y < 0) {
     growthDirection = -growthDirection;
   }
-  // make top points agnostic to the amount of base points
   std::vector<glm::vec3> topPoints = std::vector<glm::vec3>();
   for (int i = 0; i < basePoints.size(); i++) {
     topPoints.push_back(basePoints[i] + growthDirection * height * splitPoint);
@@ -68,7 +69,6 @@ void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
     middleTopPoint += topPoints[i];
   }
   middleTopPoint /= topPoints.size();
-  // move the top points away from the middle by the growOutAmount
   for (int i = 0; i < topPoints.size(); i++) {
     topPoints[i] += (topPoints[i] - middleTopPoint) * growOutAmount;
   }
@@ -97,31 +97,48 @@ void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
 }
 
 void Triangle::setVertexData() {
-  std::vector<glm::vec3> basePoints = {
-      // make them all have the same y value
-      glm::vec3(-0.2, -1, -0.2),
-      glm::vec3(0.2, -1.3, -0.2),
-      glm::vec3(0.2, -1.3, 0.2),
-      glm::vec3(-0.2, -1, 0.2),
-  };
-  std::vector<glm::vec3> base2Points = {
-      // make them all have the same y value
-      glm::vec3(-0.3, -1, -0.1),
-      glm::vec3(-0.1, -1, -0.2),
-      glm::vec3(-0.1, -1, 0.2),
-  };
-  std::vector<glm::vec3> base3Points = {
-      // make them all have the same y value
-      glm::vec3(-0.2, -1, -0.2), glm::vec3(0.2, -1.3, -0.2),
-      glm::vec3(0.2, -1.3, 0.2), glm::vec3(0.0, -1, 0.2),
-      glm::vec3(-0.2, -1, 0.2),
-  };
-  makeColumn(basePoints, 2, .8, .8, true);
-  makeColumn(base2Points, 1.7, .9, .9, true);
-  makeColumn(base3Points, 1.7, .9, .9, true);
+  glm::vec3 baseCenter = glm::vec3(0.0f, 0.0f, 0.0f);
+  std::vector<std::vector<glm::vec3>> basePoints =
+      std::vector<std::vector<glm::vec3>>();
+  for (int i = 0; i < 30; i++) {
+    std::vector<glm::vec3> base = std::vector<glm::vec3>();
+    for (int j = 0; j < 4; j++) {
+      base.push_back(baseCenter + glm::vec3(0.2f * cos(j * M_PI / 2), 0.0f,
+                                            0.2f * sin(j * M_PI / 2)));
+    }
+    basePoints.push_back(base);
+  }
+  for (int i = 0; i < basePoints.size(); i++) {
+    float xAngle = (float)(rand() % 100) * M_PI / 180;
+    if (rand() % 2 == 0) {
+      xAngle = -xAngle;
+    }
+    glm::mat4 rotationMatrix =
+        glm::rotate(glm::mat4(1.0f), xAngle, glm::vec3(1.0f, -1.0f, 0.0f));
+    float zAngle = (float)(rand() % 100) * M_PI / 180;
+    if (rand() % 2 == 0) {
+      zAngle = -zAngle;
+    }
+    rotationMatrix =
+        glm::rotate(rotationMatrix, zAngle, glm::vec3(0.0f, -1.0f, 1.0f));
+    for (int j = 0; j < basePoints[i].size(); j++) {
+      basePoints[i][j] =
+          glm::vec3(rotationMatrix * glm::vec4(basePoints[i][j], 1.0f));
+    }
+  }
+  for (int i = 0; i < basePoints.size(); i++) {
+    for (int j = 0; j < basePoints[i].size(); j++) {
+      basePoints[i][j] -= glm::vec3(0.0f, .5f, 0.0f);
+    }
+  }
+  for (int i = 0; i < basePoints.size(); i++) {
+    float height = (float)(rand() % 100) / 100 + 0.5;
+    float splitPoint = (float)(rand() % 60) / 100 + 0.2;
+    float growOutAmount = (float)(rand() % 20) / 100 + 0.1;
+    bool pointyTop = rand() % 2;
+    makeColumn(basePoints[i], height, splitPoint, growOutAmount, true);
+  }
 }
-
-// make face growing down in the direction of that normal}
 
 // Inserts a glm::vec3 into a vector of floats.
 // This will come in handy if you want to take advantage of vectors to build
