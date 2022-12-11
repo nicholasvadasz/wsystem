@@ -14,7 +14,7 @@ private:
   void makeTile(glm::vec3 topLeft, glm::vec3 topRight, glm::vec3 bottomLeft,
                 glm::vec3 bottomRight);
   void makeColumn(std::vector<glm::vec3> basePoints, float height,
-                  float splitPoint, bool pointyTop);
+                  float splitPoint, float growOutAmount, bool pointyTop);
   void insertVec3(std::vector<float> &data, glm::vec3 v);
   void setVertexData();
 

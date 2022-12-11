@@ -53,10 +53,10 @@ RM = /opt/homebrew/Cellar/cmake/3.24.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz
+CMAKE_SOURCE_DIR = /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build
+CMAKE_BINARY_DIR = /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/lab08.dir/depend.make
@@ -72,142 +72,142 @@ include CMakeFiles/lab08.dir/flags.make
 CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o: CMakeFiles/lab08.dir/flags.make
 CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o: lab08_autogen/mocs_compilation.cpp
 CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o -MF CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/lab08_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o -MF CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/lab08_autogen/mocs_compilation.cpp
 
 CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/lab08_autogen/mocs_compilation.cpp > CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/lab08_autogen/mocs_compilation.cpp > CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/lab08_autogen/mocs_compilation.cpp -o CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/lab08_autogen/mocs_compilation.cpp -o CMakeFiles/lab08.dir/lab08_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/lab08.dir/src/main.cpp.o: CMakeFiles/lab08.dir/flags.make
-CMakeFiles/lab08.dir/src/main.cpp.o: /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/main.cpp
+CMakeFiles/lab08.dir/src/main.cpp.o: /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/main.cpp
 CMakeFiles/lab08.dir/src/main.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab08.dir/src/main.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/main.cpp.o -MF CMakeFiles/lab08.dir/src/main.cpp.o.d -o CMakeFiles/lab08.dir/src/main.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab08.dir/src/main.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/main.cpp.o -MF CMakeFiles/lab08.dir/src/main.cpp.o.d -o CMakeFiles/lab08.dir/src/main.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/main.cpp
 
 CMakeFiles/lab08.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/src/main.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/main.cpp > CMakeFiles/lab08.dir/src/main.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/main.cpp > CMakeFiles/lab08.dir/src/main.cpp.i
 
 CMakeFiles/lab08.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/src/main.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/main.cpp -o CMakeFiles/lab08.dir/src/main.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/main.cpp -o CMakeFiles/lab08.dir/src/main.cpp.s
 
 CMakeFiles/lab08.dir/src/mainwindow.cpp.o: CMakeFiles/lab08.dir/flags.make
-CMakeFiles/lab08.dir/src/mainwindow.cpp.o: /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/mainwindow.cpp
+CMakeFiles/lab08.dir/src/mainwindow.cpp.o: /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/mainwindow.cpp
 CMakeFiles/lab08.dir/src/mainwindow.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lab08.dir/src/mainwindow.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/mainwindow.cpp.o -MF CMakeFiles/lab08.dir/src/mainwindow.cpp.o.d -o CMakeFiles/lab08.dir/src/mainwindow.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/mainwindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lab08.dir/src/mainwindow.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/mainwindow.cpp.o -MF CMakeFiles/lab08.dir/src/mainwindow.cpp.o.d -o CMakeFiles/lab08.dir/src/mainwindow.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/mainwindow.cpp
 
 CMakeFiles/lab08.dir/src/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/src/mainwindow.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/mainwindow.cpp > CMakeFiles/lab08.dir/src/mainwindow.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/mainwindow.cpp > CMakeFiles/lab08.dir/src/mainwindow.cpp.i
 
 CMakeFiles/lab08.dir/src/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/src/mainwindow.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/mainwindow.cpp -o CMakeFiles/lab08.dir/src/mainwindow.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/mainwindow.cpp -o CMakeFiles/lab08.dir/src/mainwindow.cpp.s
 
 CMakeFiles/lab08.dir/src/Settings.cpp.o: CMakeFiles/lab08.dir/flags.make
-CMakeFiles/lab08.dir/src/Settings.cpp.o: /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/Settings.cpp
+CMakeFiles/lab08.dir/src/Settings.cpp.o: /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/Settings.cpp
 CMakeFiles/lab08.dir/src/Settings.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab08.dir/src/Settings.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/Settings.cpp.o -MF CMakeFiles/lab08.dir/src/Settings.cpp.o.d -o CMakeFiles/lab08.dir/src/Settings.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/Settings.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab08.dir/src/Settings.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/Settings.cpp.o -MF CMakeFiles/lab08.dir/src/Settings.cpp.o.d -o CMakeFiles/lab08.dir/src/Settings.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/Settings.cpp
 
 CMakeFiles/lab08.dir/src/Settings.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/src/Settings.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/Settings.cpp > CMakeFiles/lab08.dir/src/Settings.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/Settings.cpp > CMakeFiles/lab08.dir/src/Settings.cpp.i
 
 CMakeFiles/lab08.dir/src/Settings.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/src/Settings.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/Settings.cpp -o CMakeFiles/lab08.dir/src/Settings.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/Settings.cpp -o CMakeFiles/lab08.dir/src/Settings.cpp.s
 
 CMakeFiles/lab08.dir/src/glwidget.cpp.o: CMakeFiles/lab08.dir/flags.make
-CMakeFiles/lab08.dir/src/glwidget.cpp.o: /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/glwidget.cpp
+CMakeFiles/lab08.dir/src/glwidget.cpp.o: /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/glwidget.cpp
 CMakeFiles/lab08.dir/src/glwidget.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lab08.dir/src/glwidget.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/glwidget.cpp.o -MF CMakeFiles/lab08.dir/src/glwidget.cpp.o.d -o CMakeFiles/lab08.dir/src/glwidget.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/glwidget.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lab08.dir/src/glwidget.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/glwidget.cpp.o -MF CMakeFiles/lab08.dir/src/glwidget.cpp.o.d -o CMakeFiles/lab08.dir/src/glwidget.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/glwidget.cpp
 
 CMakeFiles/lab08.dir/src/glwidget.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/src/glwidget.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/glwidget.cpp > CMakeFiles/lab08.dir/src/glwidget.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/glwidget.cpp > CMakeFiles/lab08.dir/src/glwidget.cpp.i
 
 CMakeFiles/lab08.dir/src/glwidget.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/src/glwidget.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/glwidget.cpp -o CMakeFiles/lab08.dir/src/glwidget.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/glwidget.cpp -o CMakeFiles/lab08.dir/src/glwidget.cpp.s
 
 CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o: CMakeFiles/lab08.dir/flags.make
-CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o: /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Triangle.cpp
+CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o: /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Triangle.cpp
 CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Triangle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Triangle.cpp
 
 CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Triangle.cpp > CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Triangle.cpp > CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.i
 
 CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Triangle.cpp -o CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Triangle.cpp -o CMakeFiles/lab08.dir/src/shapes/Triangle.cpp.s
 
 CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o: CMakeFiles/lab08.dir/flags.make
-CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o: /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cube.cpp
+CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o: /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cube.cpp
 CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cube.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Cube.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cube.cpp
 
 CMakeFiles/lab08.dir/src/shapes/Cube.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/src/shapes/Cube.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cube.cpp > CMakeFiles/lab08.dir/src/shapes/Cube.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cube.cpp > CMakeFiles/lab08.dir/src/shapes/Cube.cpp.i
 
 CMakeFiles/lab08.dir/src/shapes/Cube.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/src/shapes/Cube.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cube.cpp -o CMakeFiles/lab08.dir/src/shapes/Cube.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cube.cpp -o CMakeFiles/lab08.dir/src/shapes/Cube.cpp.s
 
 CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o: CMakeFiles/lab08.dir/flags.make
-CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o: /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Sphere.cpp
+CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o: /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Sphere.cpp
 CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Sphere.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Sphere.cpp
 
 CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Sphere.cpp > CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Sphere.cpp > CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.i
 
 CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Sphere.cpp -o CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Sphere.cpp -o CMakeFiles/lab08.dir/src/shapes/Sphere.cpp.s
 
 CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o: CMakeFiles/lab08.dir/flags.make
-CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o: /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cylinder.cpp
+CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o: /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cylinder.cpp
 CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cylinder.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cylinder.cpp
 
 CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cylinder.cpp > CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cylinder.cpp > CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.i
 
 CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cylinder.cpp -o CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cylinder.cpp -o CMakeFiles/lab08.dir/src/shapes/Cylinder.cpp.s
 
 CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o: CMakeFiles/lab08.dir/flags.make
-CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o: /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cone.cpp
+CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o: /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cone.cpp
 CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o: CMakeFiles/lab08.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o -c /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cone.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o -MF CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o.d -o CMakeFiles/lab08.dir/src/shapes/Cone.cpp.o -c /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cone.cpp
 
 CMakeFiles/lab08.dir/src/shapes/Cone.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab08.dir/src/shapes/Cone.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cone.cpp > CMakeFiles/lab08.dir/src/shapes/Cone.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cone.cpp > CMakeFiles/lab08.dir/src/shapes/Cone.cpp.i
 
 CMakeFiles/lab08.dir/src/shapes/Cone.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab08.dir/src/shapes/Cone.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src/shapes/Cone.cpp -o CMakeFiles/lab08.dir/src/shapes/Cone.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src/shapes/Cone.cpp -o CMakeFiles/lab08.dir/src/shapes/Cone.cpp.s
 
 # Object files for target lab08
 lab08_OBJECTS = \
@@ -242,7 +242,7 @@ lab08: /Users/nick/Qt/6.2.4/macos/lib/QtOpenGL.framework/Versions/A/QtOpenGL
 lab08: /Users/nick/Qt/6.2.4/macos/lib/QtGui.framework/Versions/A/QtGui
 lab08: /Users/nick/Qt/6.2.4/macos/lib/QtCore.framework/Versions/A/QtCore
 lab08: CMakeFiles/lab08.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable lab08"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable lab08"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab08.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -254,6 +254,6 @@ CMakeFiles/lab08.dir/clean:
 .PHONY : CMakeFiles/lab08.dir/clean
 
 CMakeFiles/lab08.dir/depend:
-	cd /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build /Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/lab08.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build /Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/lab08.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/lab08.dir/depend
 

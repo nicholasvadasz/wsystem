@@ -122,10 +122,10 @@ void MainWindow::setupUI() {
   // (order matters!)
   vLayout->addWidget(trimesh_label);
   vLayout->addWidget(triangleCB);
-  vLayout->addWidget(cubeCB);
-  vLayout->addWidget(sphereCB);
-  vLayout->addWidget(cylinderCB);
-  vLayout->addWidget(coneCB);
+  //   vLayout->addWidget(cubeCB);
+  //   vLayout->addWidget(sphereCB);
+  //   vLayout->addWidget(cylinderCB);
+  //   vLayout->addWidget(coneCB);
   vLayout->addWidget(width_spacer);
   vLayout->addWidget(params_label);
   vLayout->addWidget(param1_label);

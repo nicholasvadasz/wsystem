@@ -1,4 +1,4 @@
-/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/lab08.dir
-/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/edit_cache.dir
-/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/rebuild_cache.dir
-/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/lab08_autogen.dir
+/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/lab08.dir
+/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/edit_cache.dir
+/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/rebuild_cache.dir
+/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/CMakeFiles/lab08_autogen.dir

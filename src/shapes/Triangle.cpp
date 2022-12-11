@@ -36,7 +36,6 @@ void Triangle::makeTriangle(glm::vec3 bottomLeft, glm::vec3 bottomRight,
   glm::vec3 CA1 = bottomRight - bottomLeft;
   glm::vec3 CB1 = top - bottomLeft;
   glm::vec3 normal1 = glm::normalize(glm::cross(CA1, CB1));
-  // reverse normal
   normal1 = -normal1;
   insertVec3(m_vertexData, bottomRight);
   insertVec3(m_vertexData, normal1);
@@ -47,35 +46,53 @@ void Triangle::makeTriangle(glm::vec3 bottomLeft, glm::vec3 bottomRight,
 }
 
 void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
-                          float splitPoint, bool pointyTop) {
-
-  glm::vec3 growthDirection = glm::normalize(
-      glm::cross(basePoints[1] - basePoints[0], basePoints[2] - basePoints[0]));
+                          float splitPoint, float growOutAmount,
+                          bool pointyTop) {
+  glm::vec3 growthDirection = glm::vec3(0.0f);
+  for (int i = 0; i < basePoints.size(); i++) {
+    growthDirection += glm::normalize(
+        glm::cross(basePoints[(i + 1) % basePoints.size()] - basePoints[i],
+                   basePoints[(i + 2) % basePoints.size()] - basePoints[i]));
+  }
+  growthDirection = glm::normalize(growthDirection);
   if (growthDirection.y < 0) {
     growthDirection = -growthDirection;
   }
-  std::vector<glm::vec3> topPoints = {
-      basePoints[0] + growthDirection * splitPoint * height,
-      basePoints[1] + growthDirection * splitPoint * height,
-      basePoints[2] + growthDirection * splitPoint * height,
-      basePoints[3] + growthDirection * splitPoint * height};
-  makeTile(basePoints[0], basePoints[1], topPoints[0], topPoints[1]);
-  makeTile(basePoints[1], basePoints[2], topPoints[1], topPoints[2]);
-  makeTile(basePoints[2], basePoints[3], topPoints[2], topPoints[3]);
-  makeTile(basePoints[3], basePoints[0], topPoints[3], topPoints[0]);
+  // make top points agnostic to the amount of base points
+  std::vector<glm::vec3> topPoints = std::vector<glm::vec3>();
+  for (int i = 0; i < basePoints.size(); i++) {
+    topPoints.push_back(basePoints[i] + growthDirection * height * splitPoint);
+  }
+  glm::vec3 middleTopPoint = glm::vec3(0.0f);
+  for (int i = 0; i < topPoints.size(); i++) {
+    middleTopPoint += topPoints[i];
+  }
+  middleTopPoint /= topPoints.size();
+  // move the top points away from the middle by the growOutAmount
+  for (int i = 0; i < topPoints.size(); i++) {
+    topPoints[i] += (topPoints[i] - middleTopPoint) * growOutAmount;
+  }
+  for (int i = 0; i < basePoints.size(); i++) {
+    makeTile(basePoints[i], basePoints[(i + 1) % basePoints.size()],
+             topPoints[i], topPoints[(i + 1) % topPoints.size()]);
+  }
   if (!pointyTop) {
-    makeTriangle(topPoints[0], topPoints[1], topPoints[2]);
-    makeTriangle(topPoints[2], topPoints[3], topPoints[0]);
+    for (int i = 0; i < topPoints.size(); i++) {
+      makeTriangle(topPoints[i], topPoints[(i + 1) % topPoints.size()],
+                   middleTopPoint);
+    }
   } else {
     // middle point is average of all 4 points
-    glm::vec3 tipPoint =
-        (basePoints[0] + basePoints[1] + basePoints[2] + basePoints[3]) / 4.0f;
-    // then add the total growth direction to it
-    tipPoint += growthDirection * height;
-    makeTriangle(topPoints[0], topPoints[1], tipPoint);
-    makeTriangle(topPoints[1], topPoints[2], tipPoint);
-    makeTriangle(topPoints[2], topPoints[3], tipPoint);
-    makeTriangle(topPoints[3], topPoints[0], tipPoint);
+    glm::vec3 tipPoint = glm::vec3(0.0f);
+    for (int i = 0; i < topPoints.size(); i++) {
+      tipPoint += topPoints[i];
+    }
+    tipPoint /= topPoints.size();
+    tipPoint += growthDirection * height * (1 - splitPoint);
+    for (int i = 0; i < topPoints.size(); i++) {
+      makeTriangle(topPoints[i], topPoints[(i + 1) % topPoints.size()],
+                   tipPoint);
+    }
   }
 }
 
@@ -92,11 +109,18 @@ void Triangle::setVertexData() {
       glm::vec3(-0.3, -1, -0.1),
       glm::vec3(-0.1, -1, -0.2),
       glm::vec3(-0.1, -1, 0.2),
-      glm::vec3(-0.3, -1, 0.3),
   };
-  makeColumn(basePoints, 2, .8, true);
-  makeColumn(base2Points, 1.7, .9, true);
+  std::vector<glm::vec3> base3Points = {
+      // make them all have the same y value
+      glm::vec3(-0.2, -1, -0.2), glm::vec3(0.2, -1.3, -0.2),
+      glm::vec3(0.2, -1.3, 0.2), glm::vec3(0.0, -1, 0.2),
+      glm::vec3(-0.2, -1, 0.2),
+  };
+  makeColumn(basePoints, 2, .8, .8, true);
+  makeColumn(base2Points, 1.7, .9, .9, true);
+  makeColumn(base3Points, 1.7, .9, .9, true);
 }
+
 // make face growing down in the direction of that normal}
 
 // Inserts a glm::vec3 into a vector of floats.

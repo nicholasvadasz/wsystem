@@ -94,8 +94,8 @@
 #define __DECIMAL_DIG__ __LDBL_DECIMAL_DIG__
 #define __DEPRECATED 1
 #define __DYNAMIC__ 1
-#define __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ 120000
-#define __ENVIRONMENT_OS_VERSION_MIN_REQUIRED__ 120000
+#define __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ 130000
+#define __ENVIRONMENT_OS_VERSION_MIN_REQUIRED__ 130000
 #define __EXCEPTIONS 1
 #define __FINITE_MATH_ONLY__ 0
 #define __FLT16_DECIMAL_DIG__ 5
@@ -380,7 +380,7 @@
 #define __UINT_LEAST8_MAX__ 255
 #define __UINT_LEAST8_TYPE__ unsigned char
 #define __USER_LABEL_PREFIX__ _
-#define __VERSION__ "Apple LLVM 14.0.0 (clang-1400.0.29.102)"
+#define __VERSION__ "Apple LLVM 14.0.0 (clang-1400.0.29.202)"
 #define __WCHAR_MAX__ 2147483647
 #define __WCHAR_TYPE__ int
 #define __WCHAR_WIDTH__ 32
@@ -397,7 +397,7 @@
 #define __clang_major__ 14
 #define __clang_minor__ 0
 #define __clang_patchlevel__ 0
-#define __clang_version__ "14.0.0 (clang-1400.0.29.102)"
+#define __clang_version__ "14.0.0 (clang-1400.0.29.202)"
 #define __clang_wide_literal_encoding__ "UTF-32"
 #define __cplusplus 199711L
 #define __cpp_exceptions 199711L

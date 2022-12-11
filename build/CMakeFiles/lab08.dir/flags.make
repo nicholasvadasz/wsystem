@@ -4,9 +4,9 @@
 # compile CXX with /usr/bin/clang++
 CXX_DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB
 
-CXX_INCLUDES = -I/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build -I/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz -I/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/build/lab08_autogen/include -I/Users/nick/GitHub/graphics/labs/lab08-trimeshes-nicholasvadasz/src -iframework /Users/nick/Qt/6.2.4/macos/lib -isystem /Users/nick/Qt/6.2.4/macos/lib/QtCore.framework/Headers -isystem /Users/nick/Qt/6.2.4/macos/mkspecs/macx-clang -isystem /Users/nick/Qt/6.2.4/macos/include -isystem /Users/nick/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -isystem /Users/nick/Qt/6.2.4/macos/lib/QtGui.framework/Headers -isystem /Users/nick/Qt/6.2.4/macos/lib/QtOpenGL.framework/Headers -isystem /Users/nick/Qt/6.2.4/macos/lib/QtOpenGLWidgets.framework/Headers
+CXX_INCLUDES = -I/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build -I/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz -I/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/build/lab08_autogen/include -I/Users/nick/GitHub/fun/lab08-trimeshes-nicholasvadasz/src -iframework /Users/nick/Qt/6.2.4/macos/lib -isystem /Users/nick/Qt/6.2.4/macos/lib/QtCore.framework/Headers -isystem /Users/nick/Qt/6.2.4/macos/mkspecs/macx-clang -isystem /Users/nick/Qt/6.2.4/macos/include -isystem /Users/nick/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -isystem /Users/nick/Qt/6.2.4/macos/lib/QtGui.framework/Headers -isystem /Users/nick/Qt/6.2.4/macos/lib/QtOpenGL.framework/Headers -isystem /Users/nick/Qt/6.2.4/macos/lib/QtOpenGLWidgets.framework/Headers
 
-CXX_FLAGSarm64 = -Wno-deprecated-volatile -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++20
+CXX_FLAGSarm64 = -Wno-deprecated-volatile -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk -std=gnu++20
 
-CXX_FLAGS = -Wno-deprecated-volatile -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++20
+CXX_FLAGS = -Wno-deprecated-volatile -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk -std=gnu++20
 
