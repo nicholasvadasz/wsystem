@@ -18,7 +18,6 @@ class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_4_1_Core {
 public:
   void initializeShapesAndParameters();
   ~GLWidget();
-
   void settingsChange();
 
 protected:

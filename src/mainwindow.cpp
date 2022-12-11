@@ -100,6 +100,7 @@ void MainWindow::setupUI() {
   p1Box->setMaximum(50);
   p1Box->setSingleStep(1);
   p1Box->setValue(1);
+  p1Box->setFocusPolicy(Qt::NoFocus);
 
   p2Slider = new QSlider(Qt::Orientation::Horizontal); // Parameter 2 slider
   p2Slider->setTickInterval(1);
@@ -112,6 +113,7 @@ void MainWindow::setupUI() {
   p2Box->setMaximum(50);
   p2Box->setSingleStep(1);
   p2Box->setValue(1);
+  p2Box->setFocusPolicy(Qt::NoFocus);
 
   p3Slider = new QSlider(Qt::Orientation::Horizontal); // Parameter 3 slider
   p3Slider->setTickInterval(1);
@@ -124,6 +126,7 @@ void MainWindow::setupUI() {
   p3Box->setMaximum(50);
   p3Box->setSingleStep(1);
   p3Box->setValue(1);
+  p3Box->setFocusPolicy(Qt::NoFocus);
 
   p4Slider = new QSlider(Qt::Orientation::Horizontal); // Parameter 2 slider
   p4Slider->setTickInterval(1);
@@ -136,6 +139,7 @@ void MainWindow::setupUI() {
   p4Box->setMaximum(50);
   p4Box->setSingleStep(1);
   p4Box->setValue(1);
+  p4Box->setFocusPolicy(Qt::NoFocus);
 
   // Adds the slider and number box to the parameter layouts
   l1->addWidget(p1Slider);
