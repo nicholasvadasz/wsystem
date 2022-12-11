@@ -1,14 +1,34 @@
 #include "Triangle.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
+#include <iostream>
+#define NUM_COLUMNS 10
 
 // make a const of "base points", 4 vertices making a square base
+// set the same arc4random seed
 
 void Triangle::updateParams(int param1, int param2) {
   m_vertexData = std::vector<float>();
-  setVertexData();
   m_param1 = param1;
   m_param2 = param2;
+  if (randomSeedValues.size() == 0) {
+    triggerSeedChange();
+  } else {
+    setVertexData();
+  }
+}
+
+void Triangle::triggerSeedChange() {
+  randomSeedValues = std::vector<std::vector<uint32_t>>();
+  for (int i = 0; i < NUM_COLUMNS; i++) {
+    std::vector<uint32_t> seedValues;
+    for (int j = 0; j < 8; j++) {
+      seedValues.push_back(arc4random());
+    }
+    randomSeedValues.push_back(seedValues);
+  }
+  std::cout << "Seed changed" << std::endl;
+  setVertexData();
 }
 
 void Triangle::makeTile(glm::vec3 topLeft, glm::vec3 topRight,
@@ -82,7 +102,6 @@ void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
                    middleTopPoint);
     }
   } else {
-    // middle point is average of all 4 points
     glm::vec3 tipPoint = glm::vec3(0.0f);
     for (int i = 0; i < topPoints.size(); i++) {
       tipPoint += topPoints[i];
@@ -100,7 +119,7 @@ void Triangle::setVertexData() {
   glm::vec3 baseCenter = glm::vec3(0.0f, 0.0f, 0.0f);
   std::vector<std::vector<glm::vec3>> basePoints =
       std::vector<std::vector<glm::vec3>>();
-  for (int i = 0; i < 30; i++) {
+  for (int i = 0; i < NUM_COLUMNS; i++) {
     std::vector<glm::vec3> base = std::vector<glm::vec3>();
     for (int j = 0; j < 4; j++) {
       base.push_back(baseCenter + glm::vec3(0.2f * cos(j * M_PI / 2), 0.0f,
@@ -109,14 +128,14 @@ void Triangle::setVertexData() {
     basePoints.push_back(base);
   }
   for (int i = 0; i < basePoints.size(); i++) {
-    float xAngle = (float)(rand() % 100) * M_PI / 180;
-    if (rand() % 2 == 0) {
+    float xAngle = (float)(randomSeedValues[i][0] % 100) * M_PI / 180;
+    if (randomSeedValues[i][1] % 2 == 0) {
       xAngle = -xAngle;
     }
     glm::mat4 rotationMatrix =
         glm::rotate(glm::mat4(1.0f), xAngle, glm::vec3(1.0f, -1.0f, 0.0f));
-    float zAngle = (float)(rand() % 100) * M_PI / 180;
-    if (rand() % 2 == 0) {
+    float zAngle = (float)(randomSeedValues[i][2] % 100) * M_PI / 180;
+    if (randomSeedValues[i][3] % 2 == 0) {
       zAngle = -zAngle;
     }
     rotationMatrix =
@@ -132,10 +151,10 @@ void Triangle::setVertexData() {
     }
   }
   for (int i = 0; i < basePoints.size(); i++) {
-    float height = (float)(rand() % 100) / 100 + 0.5;
-    float splitPoint = (float)(rand() % 60) / 100 + 0.2;
-    float growOutAmount = (float)(rand() % 20) / 100 + 0.1;
-    bool pointyTop = rand() % 2;
+    float height = (float)(randomSeedValues[i][4] % 100) / 100 + 0.5;
+    float splitPoint = (float)(randomSeedValues[i][5] % 60) / 100 + 0.2;
+    float growOutAmount = (float)(randomSeedValues[i][6] % 20) / 100 + 0.1;
+    bool pointyTop = randomSeedValues[i][7] % 2;
     makeColumn(basePoints[i], height, splitPoint, growOutAmount, true);
   }
 }

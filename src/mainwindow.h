@@ -1,67 +1,61 @@
 #pragma once
 
+#include <QCheckBox>
 #include <QMainWindow>
+#include <QPushButton>
+#include <QRadioButton>
 #include <QSlider>
 #include <QSpinBox>
-#include <QRadioButton>
-#include <QCheckBox>
-#include <QPushButton>
 
 #include "glwidget.h"
 
-class MainWindow : public QWidget
-{
-    Q_OBJECT
+class MainWindow : public QWidget {
+  Q_OBJECT
 
 public:
-    void setupUI();
-    ~MainWindow();
+  void setupUI();
+  ~MainWindow();
 
 private:
-    GLWidget *glWidget;
+  GLWidget *glWidget;
 
-    QSlider *p1Slider;
-    QSlider *p2Slider;
-    QSpinBox *p1Box;
-    QSpinBox *p2Box;
+  QSlider *p1Slider;
+  QSlider *p2Slider;
+  QSpinBox *p1Box;
+  QSpinBox *p2Box;
 
-    QSlider *p3Slider;
-    QSlider *p4Slider;
-    QSpinBox *p3Box;
-    QSpinBox *p4Box;
+  QSlider *p3Slider;
+  QSlider *p4Slider;
+  QSpinBox *p3Box;
+  QSpinBox *p4Box;
 
-    QPushButton *exportObj;
+  QPushButton *exportObj;
 
-    QCheckBox *showWireframeNormals;
+  QCheckBox *showWireframeNormals;
 
-    QRadioButton *triangleCB;
-    QRadioButton *cubeCB;
-    QRadioButton *sphereCB;
-    QRadioButton *cylinderCB;
-    QRadioButton *coneCB;
+  QRadioButton *triangleCB;
+  QRadioButton *cubeCB;
+  QRadioButton *sphereCB;
+  QRadioButton *cylinderCB;
+  QRadioButton *coneCB;
 
-    QRadioButton *pointCB;
-    QRadioButton *bool1CB;
-    QRadioButton *bool2CB;
+  QRadioButton *pointCB;
+  QRadioButton *bool1CB;
+  QRadioButton *bool2CB;
 
-    void connectParam1();
-    void connectParam2();;
-    void connectWireframeNormals();
+  void connectParam1();
+  void connectParam2();
+  ;
+  void connectWireframeNormals();
 
-    void connectTriangle();
-    void connectCube();
-    void connectSphere();
-    void connectCylinder();
-    void connectCone();
+  void connectTriangle();
+  void connectCube();
+  void connectSphere();
+  void connectCylinder();
+  void connectCone();
 
 private slots:
-    void onValChangeP1(int newValue);
-    void onValChangeP2(int newValue);
-    void onWireframeNormalsChange();
-
-    void onTriChange();
-    void onCubeChange();
-    void onSphereChange();
-    void onCylinderChange();
-    void onConeChange();
+  void onValChangeP1(int newValue);
+  void onValChangeP2(int newValue);
+  void onWireframeNormalsChange();
 };

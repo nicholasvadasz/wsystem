@@ -8,6 +8,7 @@ public:
   void updateParams(int param1, int param2);
   std::vector<glm::vec3> basePoints;
   std::vector<float> generateShape() { return m_vertexData; }
+  void triggerSeedChange();
 
 private:
   void makeTriangle(glm::vec3 bottomLeft, glm::vec3 bottomRight, glm::vec3 top);
@@ -19,6 +20,7 @@ private:
   void setVertexData();
 
   std::vector<float> m_vertexData;
+  std::vector<std::vector<uint32_t>> randomSeedValues;
   int m_param1;
   int m_param2;
 };
