@@ -4,15 +4,15 @@
 #include <iostream>
 #define NUM_COLUMNS 10
 
-// make a const of "base points", 4 vertices making a square base
-// set the same arc4random seed
-
 int id = 0;
 
 void Triangle::updateParams(int param1, int param2) {
   m_vertexData = std::vector<float>();
   m_param1 = param1;
-  m_param2 = param2;
+  if (m_param2 != param2) {
+    triggerSeedChange();
+    m_param2 = param2;
+  }
   if (randomSeedValues.size() == 0) {
     triggerSeedChange();
   } else {
@@ -20,11 +20,11 @@ void Triangle::updateParams(int param1, int param2) {
   }
 }
 
-std::vector<std::vector<Triangle::vertex>> Triangle::returnFacesV(){
+std::vector<std::vector<Triangle::vertex>> Triangle::returnFacesV() {
   return allFacesV;
 }
 
-std::vector<std::vector<Triangle::normal>> Triangle::returnFacesN(){
+std::vector<std::vector<Triangle::normal>> Triangle::returnFacesN() {
   return allFacesN;
 }
 
@@ -47,40 +47,46 @@ void Triangle::makeTile(glm::vec3 topLeft, glm::vec3 topRight,
   glm::vec3 CB1 = topLeft - bottomLeft;
   glm::vec3 normal1 = glm::normalize(glm::cross(CA1, CB1));
   insertVec3(m_vertexData, bottomLeft);
+  justTheVertices.push_back(bottomLeft);
   insertVec3(m_vertexData, normal1);
   insertVec3(m_vertexData, bottomRight);
+  justTheVertices.push_back(bottomRight);
   insertVec3(m_vertexData, normal1);
   insertVec3(m_vertexData, topLeft);
+  justTheVertices.push_back(topLeft);
   insertVec3(m_vertexData, normal1);
 
-  //Inserting to my datastructure
-    normal n1;
-    n1.normalID = id++;
-    n1.n = normal1;
+  // Inserting to my datastructure
+  normal n1;
+  n1.normalID = id++;
+  n1.n = normal1;
 
-    vertex v1;
-    v1.vertexID = id++;
-    v1.v = bottomLeft;
-    v1.n = n1;
-    vertex v2;
-    v2.vertexID = id++;
-    v2.v = bottomRight;
-    v2.n = n1;
-    vertex v3;
-    v3.vertexID = id++;
-    v3.v = topLeft;
-    v3.n = n1;
-    allFacesV.push_back({v1, v2, v3});
-    allFacesN.push_back({n1, n1, n1});
+  vertex v1;
+  v1.vertexID = id++;
+  v1.v = bottomLeft;
+  v1.n = n1;
+  vertex v2;
+  v2.vertexID = id++;
+  v2.v = bottomRight;
+  v2.n = n1;
+  vertex v3;
+  v3.vertexID = id++;
+  v3.v = topLeft;
+  v3.n = n1;
+  allFacesV.push_back({v1, v2, v3});
+  allFacesN.push_back({n1, n1, n1});
 
   glm::vec3 CA2 = topRight - topLeft;
   glm::vec3 CB2 = bottomRight - topLeft;
   glm::vec3 normal2 = glm::normalize(glm::cross(CB2, CA2));
   insertVec3(m_vertexData, topLeft);
+  justTheVertices.push_back(topLeft);
   insertVec3(m_vertexData, normal2);
   insertVec3(m_vertexData, bottomRight);
+  justTheVertices.push_back(bottomRight);
   insertVec3(m_vertexData, normal2);
   insertVec3(m_vertexData, topRight);
+  justTheVertices.push_back(topRight);
   insertVec3(m_vertexData, normal2);
 
   n1.normalID = id++;
@@ -96,7 +102,6 @@ void Triangle::makeTile(glm::vec3 topLeft, glm::vec3 topRight,
   v3.n = n1;
   allFacesV.push_back({v1, v2, v3});
   allFacesN.push_back({n1, n1, n1});
-
 }
 
 void Triangle::makeTriangle(glm::vec3 bottomLeft, glm::vec3 bottomRight,
@@ -106,31 +111,33 @@ void Triangle::makeTriangle(glm::vec3 bottomLeft, glm::vec3 bottomRight,
   glm::vec3 normal1 = glm::normalize(glm::cross(CA1, CB1));
   normal1 = -normal1;
   insertVec3(m_vertexData, bottomRight);
+  justTheVertices.push_back(bottomRight);
   insertVec3(m_vertexData, normal1);
   insertVec3(m_vertexData, bottomLeft);
+  justTheVertices.push_back(bottomLeft);
   insertVec3(m_vertexData, normal1);
   insertVec3(m_vertexData, top);
+  justTheVertices.push_back(top);
   insertVec3(m_vertexData, normal1);
 
-  //Inserting to my datastructure
-    normal n1;
-    n1.normalID = id++;
-    n1.n = normal1;
-    vertex v1;
-    v1.vertexID = id++;
-    v1.v = bottomRight;
-    v1.n = n1;
-    vertex v2;
-    v2.vertexID = id++;
-    v2.v = bottomLeft;
-    v2.n = n1;
-    vertex v3;
-    v3.vertexID = id++;
-    v3.v = top;
-    v3.n = n1;
-    allFacesV.push_back({v1, v2, v3});
-    allFacesN.push_back({n1, n1, n1});
-
+  // Inserting to my datastructure
+  normal n1;
+  n1.normalID = id++;
+  n1.n = normal1;
+  vertex v1;
+  v1.vertexID = id++;
+  v1.v = bottomRight;
+  v1.n = n1;
+  vertex v2;
+  v2.vertexID = id++;
+  v2.v = bottomLeft;
+  v2.n = n1;
+  vertex v3;
+  v3.vertexID = id++;
+  v3.v = top;
+  v3.n = n1;
+  allFacesV.push_back({v1, v2, v3});
+  allFacesN.push_back({n1, n1, n1});
 }
 
 void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
@@ -179,8 +186,8 @@ void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
                    tipPoint);
     }
   }
-  // objSep.at(allFacesN.size() + allFacesV.size() + (allFacesN.size()/3.0)) = 1;
-
+  // objSep.at(allFacesN.size() + allFacesV.size() + (allFacesN.size()/3.0)) =
+  // 1;
 }
 
 void Triangle::setVertexData() {

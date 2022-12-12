@@ -10,15 +10,15 @@ public:
   std::vector<float> generateShape() { return m_vertexData; }
   void triggerSeedChange();
 
-  struct normal{
-      int normalID;
-      glm::vec3 n;
+  struct normal {
+    int normalID;
+    glm::vec3 n;
   };
 
-  struct vertex{
-      int vertexID;
-      glm::vec3 v;
-      normal n;
+  struct vertex {
+    int vertexID;
+    glm::vec3 v;
+    normal n;
   };
   std::vector<std::vector<Triangle::vertex>> returnFacesV();
   std::vector<std::vector<Triangle::normal>> returnFacesN();
@@ -27,7 +27,8 @@ public:
   std::vector<std::vector<Triangle::normal>> allFacesN;
   std::vector<int> objSep;
 
-
+  std::vector<glm::vec3> justTheVertices;
+  std::vector<glm::vec3> getJustTheVertices() { return justTheVertices; }
 
 private:
   void makeTriangle(glm::vec3 bottomLeft, glm::vec3 bottomRight, glm::vec3 top);
