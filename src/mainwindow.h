@@ -53,9 +53,13 @@ private:
   void connectSphere();
   void connectCylinder();
   void connectCone();
+  void connectExportObj();
+
 
 private slots:
   void onValChangeP1(int newValue);
   void onValChangeP2(int newValue);
   void onWireframeNormalsChange();
+  void onExportObj();
+
 };

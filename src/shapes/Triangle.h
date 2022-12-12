@@ -10,6 +10,25 @@ public:
   std::vector<float> generateShape() { return m_vertexData; }
   void triggerSeedChange();
 
+  struct normal{
+      int normalID;
+      glm::vec3 n;
+  };
+
+  struct vertex{
+      int vertexID;
+      glm::vec3 v;
+      normal n;
+  };
+  std::vector<std::vector<Triangle::vertex>> returnFacesV();
+  std::vector<std::vector<Triangle::normal>> returnFacesN();
+  std::vector<int> returnSeparator();
+  std::vector<std::vector<Triangle::vertex>> allFacesV;
+  std::vector<std::vector<Triangle::normal>> allFacesN;
+  std::vector<int> objSep;
+
+
+
 private:
   void makeTriangle(glm::vec3 bottomLeft, glm::vec3 bottomRight, glm::vec3 top);
   void makeTile(glm::vec3 topLeft, glm::vec3 topRight, glm::vec3 bottomLeft,

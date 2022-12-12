@@ -182,6 +182,8 @@ void MainWindow::setupUI() {
   connectParam1();
   connectParam2();
   connectWireframeNormals();
+  connectExportObj();
+
 }
 
 //******************************** Handles Parameter 1 UI Changes
@@ -213,6 +215,16 @@ void MainWindow::onValChangeP2(int newValue) {
   settings.shapeParameter2 = p2Slider->value();
   glWidget->settingsChange();
 }
+
+//***************************** Handles writing obj file *****************************//
+void MainWindow::connectExportObj(){
+    connect(exportObj, &QPushButton::released, this, &MainWindow::onExportObj);
+}
+
+void MainWindow::onExportObj(){
+    glWidget->writeFile();
+}
+
 
 //***************************** Handles Wireframe/Normals UI Changes
 //*****************************//

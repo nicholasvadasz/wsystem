@@ -6,6 +6,7 @@
 #include <QOpenGLShaderProgram>
 #include <iostream>
 #include <math.h>
+#include <fstream>
 
 /**
  * ==================================================
@@ -298,6 +299,8 @@ void GLWidget::initializeShapesAndParameters() {
   m_currParam2 = 1;
   m_triangle = new Triangle();
   m_triangle->updateParams(m_currParam1, m_currParam2);
+  globalFacesN = m_triangle->returnFacesN();
+  globalFacesV = m_triangle->returnFacesV();
 }
 
 QMatrix4x4 GLWidget::glmMatToQMat(glm::mat4x4 m) {
@@ -358,6 +361,43 @@ void GLWidget::updateView() {
              glm::rotate(m_angleXY[0], glm::vec3(1.0, 0.0, 0.0));
   update();
 }
+
+/* -----------------------------------------------
+ *   Export to Obj
+ * -----------------------------------------------
+ */
+
+int GLWidget::writeFile() {
+  std::ofstream myfile;
+  myfile.open ("v.obj");
+
+      myfile << "o Cube\n";
+
+          for(std::vector<Triangle::vertex> vs: globalFacesV){
+              for(Triangle::vertex v:vs){
+                  myfile << "v " + std::to_string(v.v.x) + " " + std::to_string(v.v.y) + " " + std::to_string(v.v.z) + "\n";
+              }
+          }
+
+          for(std::vector<Triangle::normal> vn: globalFacesN){
+              for(Triangle::normal n:vn){
+                  myfile << "vn " + std::to_string(n.n.x) + " " + std::to_string(n.n.y) + " " + std::to_string(n.n.z) + "\n";
+              }
+          }
+
+          myfile << "s 0\n";
+          for(std::vector<Triangle::vertex> vs: globalFacesV){
+                  myfile << "f " + std::to_string(vs.at(0).vertexID) + "//" + std::to_string(vs.at(0).n.normalID) + " " +
+                            std::to_string(vs.at(1).vertexID) + "//" + std::to_string(vs.at(0).n.normalID) + " " +
+                            std::to_string(vs.at(2).vertexID) + "//" + std::to_string(vs.at(0).n.normalID) + "\n";
+          }
+
+
+  myfile.close();
+  std::cout << "writing file!" << std::endl;
+  return 0;
+}
+
 
 /* -----------------------------------------------
  *   Settings Change
