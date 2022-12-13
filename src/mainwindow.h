@@ -31,6 +31,7 @@ private:
 
   QPushButton *exportObj;
   QPushButton *exportSeedData;
+  QPushButton *seedRegen;
 
   QCheckBox *showWireframeNormals;
 
@@ -46,7 +47,8 @@ private:
 
   void connectParam1();
   void connectParam2();
-  ;
+  void connectParam3();
+  void connectParam4();
   void connectWireframeNormals();
 
   void connectTriangle();
@@ -56,13 +58,15 @@ private:
   void connectCone();
   void connectExportObj();
   void connectSeedData();
-
+  void connectSeedRegen();
 
 private slots:
   void onValChangeP1(int newValue);
   void onValChangeP2(int newValue);
+  void onValChangeP3(int newValue);
+  void onValChangeP4(int newValue);
   void onWireframeNormalsChange();
   void onExportObj();
   void onExportSeedData();
-
+  void onSeedRegen();
 };

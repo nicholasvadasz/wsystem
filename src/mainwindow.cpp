@@ -61,6 +61,7 @@ void MainWindow::setupUI() {
   exportSeedData = new QPushButton();
   exportObj->setText(QStringLiteral("Export to OBJ"));
   exportSeedData->setText(QStringLiteral("Export Seed Data"));
+  seedRegen = new QPushButton("Regenerate Seed");
 
   // Create button controls to toggle 3D shapes
   pointCB = new QRadioButton(); // Point button
@@ -95,52 +96,52 @@ void MainWindow::setupUI() {
   p1Slider->setTickInterval(1);
   p1Slider->setMinimum(1);
   p1Slider->setMaximum(50);
-  p1Slider->setValue(1);
+  p1Slider->setValue(25);
 
   p1Box = new QSpinBox();
   p1Box->setMinimum(1);
   p1Box->setMaximum(50);
   p1Box->setSingleStep(1);
-  p1Box->setValue(1);
+  p1Box->setValue(25);
   p1Box->setFocusPolicy(Qt::NoFocus);
 
   p2Slider = new QSlider(Qt::Orientation::Horizontal); // Parameter 2 slider
   p2Slider->setTickInterval(1);
   p2Slider->setMinimum(1);
   p2Slider->setMaximum(50);
-  p2Slider->setValue(1);
+  p2Slider->setValue(25);
 
   p2Box = new QSpinBox();
   p2Box->setMinimum(1);
   p2Box->setMaximum(50);
   p2Box->setSingleStep(1);
-  p2Box->setValue(1);
+  p2Box->setValue(25);
   p2Box->setFocusPolicy(Qt::NoFocus);
 
   p3Slider = new QSlider(Qt::Orientation::Horizontal); // Parameter 3 slider
   p3Slider->setTickInterval(1);
   p3Slider->setMinimum(1);
   p3Slider->setMaximum(50);
-  p3Slider->setValue(1);
+  p3Slider->setValue(25);
 
   p3Box = new QSpinBox();
   p3Box->setMinimum(1);
   p3Box->setMaximum(50);
   p3Box->setSingleStep(1);
-  p3Box->setValue(1);
+  p3Box->setValue(25);
   p3Box->setFocusPolicy(Qt::NoFocus);
 
   p4Slider = new QSlider(Qt::Orientation::Horizontal); // Parameter 2 slider
   p4Slider->setTickInterval(1);
   p4Slider->setMinimum(1);
   p4Slider->setMaximum(50);
-  p4Slider->setValue(1);
+  p4Slider->setValue(25);
 
   p4Box = new QSpinBox();
   p4Box->setMinimum(1);
   p4Box->setMaximum(50);
   p4Box->setSingleStep(1);
-  p4Box->setValue(1);
+  p4Box->setValue(25);
   p4Box->setFocusPolicy(Qt::NoFocus);
 
   // Adds the slider and number box to the parameter layouts
@@ -178,15 +179,19 @@ void MainWindow::setupUI() {
 
   vLayout->addWidget(param4_label);
   vLayout->addWidget(p4Layout);
+  vLayout->addWidget(seedRegen);
   vLayout->addWidget(exportObj);
   vLayout->addWidget(exportSeedData);
   vLayout->addWidget(showWireframeNormals);
 
   connectParam1();
   connectParam2();
+  connectParam3();
+  connectParam4();
   connectWireframeNormals();
   connectExportObj();
   connectSeedData();
+  connectSeedRegen();
 }
 
 //******************************** Handles Parameter 1 UI Changes
@@ -212,6 +217,18 @@ void MainWindow::connectParam2() {
           this, &MainWindow::onValChangeP2);
 }
 
+void MainWindow::connectParam3() {
+  connect(p3Slider, &QSlider::valueChanged, this, &MainWindow::onValChangeP3);
+  connect(p3Box, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged),
+          this, &MainWindow::onValChangeP3);
+}
+
+void MainWindow::connectParam4() {
+  connect(p4Slider, &QSlider::valueChanged, this, &MainWindow::onValChangeP4);
+  connect(p4Box, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged),
+          this, &MainWindow::onValChangeP4);
+}
+
 void MainWindow::onValChangeP2(int newValue) {
   p2Slider->setValue(newValue);
   p2Box->setValue(newValue);
@@ -219,23 +236,40 @@ void MainWindow::onValChangeP2(int newValue) {
   glWidget->settingsChange();
 }
 
-//***************************** Handles writing obj file *****************************//
-void MainWindow::connectExportObj(){
-    connect(exportObj, &QPushButton::released, this, &MainWindow::onExportObj);
+void MainWindow::onValChangeP3(int newValue) {
+  p3Slider->setValue(newValue);
+  p3Box->setValue(newValue);
+  settings.shapeParameter3 = p3Slider->value();
+  glWidget->settingsChange();
 }
 
-void MainWindow::connectSeedData(){
-    connect(exportSeedData, &QPushButton::released, this, &MainWindow::onExportSeedData);
+void MainWindow::onValChangeP4(int newValue) {
+  p4Slider->setValue(newValue);
+  p4Box->setValue(newValue);
+  settings.shapeParameter4 = p4Slider->value();
+  glWidget->settingsChange();
 }
 
-void MainWindow::onExportObj(){
-    glWidget->writeFile();
+//***************************** Handles writing obj file
+//*****************************//
+void MainWindow::connectExportObj() {
+  connect(exportObj, &QPushButton::released, this, &MainWindow::onExportObj);
 }
 
-void MainWindow::onExportSeedData(){
-    glWidget->writeSeedData();
+void MainWindow::connectSeedData() {
+  connect(exportSeedData, &QPushButton::released, this,
+          &MainWindow::onExportSeedData);
 }
 
+void MainWindow::connectSeedRegen() {
+  connect(seedRegen, &QPushButton::released, this, &MainWindow::onSeedRegen);
+}
+
+void MainWindow::onExportObj() { glWidget->writeFile(); }
+
+void MainWindow::onExportSeedData() { glWidget->writeSeedData(); }
+
+void MainWindow::onSeedRegen() { glWidget->regenSeeds(); }
 
 //***************************** Handles Wireframe/Normals UI Changes
 //*****************************//

@@ -21,6 +21,7 @@ public:
   void settingsChange();
   int writeFile();
   int writeSeedData();
+  void regenSeeds();
 
 
 protected:

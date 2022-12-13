@@ -295,10 +295,13 @@ void GLWidget::resizeGL(int w, int h) {
 
 void GLWidget::initializeShapesAndParameters() {
   m_currShape = SHAPE_TRIANGLE;
-  m_currParam1 = 1;
-  m_currParam2 = 1;
+  m_currParam1 = 25;
+  m_currParam2 = 25;
+  m_currParam3 = 25;
+  m_currParam4 = 25;
   m_triangle = new Triangle();
-  m_triangle->updateParams(m_currParam1, m_currParam2);
+  m_triangle->updateParams(m_currParam1, m_currParam2, m_currParam3,
+                           m_currParam4);
 }
 
 QMatrix4x4 GLWidget::glmMatToQMat(glm::mat4x4 m) {
@@ -386,18 +389,25 @@ int GLWidget::writeFile() {
 }
 
 int GLWidget::writeSeedData() {
-    std::ofstream myfile;
-    myfile.open("seed_data.txt");
-    myfile.clear();
-    std::vector<std::vector<uint32_t>> curSeedValues = m_triangle->getSeedValues();
-    for (std::vector<uint32_t> base: curSeedValues) {
-        for (uint32_t value: base){
-            myfile << std::to_string(value) << "\n";
-        }
+  std::ofstream myfile;
+  myfile.open("seed_data.txt");
+  myfile.clear();
+  std::vector<std::vector<uint32_t>> curSeedValues =
+      m_triangle->getSeedValues();
+  for (std::vector<uint32_t> base : curSeedValues) {
+    for (uint32_t value : base) {
+      myfile << std::to_string(value) << "\n";
     }
-    myfile.close();
-    std::cout << "Finished Writing Seed Data" << std::endl;
-    return 0;
+  }
+  myfile.close();
+  std::cout << "Finished Writing Seed Data" << std::endl;
+  return 0;
+}
+
+void GLWidget::regenSeeds() {
+  m_triangle->triggerSeedChange();
+  bindVbo();
+  update();
 }
 
 /* -----------------------------------------------
@@ -421,13 +431,18 @@ void GLWidget::settingsChange() {
 
   // parameter settings
   if (settings.shapeParameter1 != m_currParam1 ||
-      settings.shapeParameter2 != m_currParam2) {
+      settings.shapeParameter2 != m_currParam2 ||
+      settings.shapeParameter3 != m_currParam3 ||
+      settings.shapeParameter4 != m_currParam4) {
     m_currParam1 = settings.shapeParameter1;
     m_currParam2 = settings.shapeParameter2;
+    m_currParam3 = settings.shapeParameter3;
+    m_currParam4 = settings.shapeParameter4;
 
     if (settings.shapeType == SHAPE_TRIANGLE) {
-      m_triangle->updateParams(settings.shapeParameter1,
-                               settings.shapeParameter2);
+      m_triangle->updateParams(
+          settings.shapeParameter1, settings.shapeParameter2,
+          settings.shapeParameter3, settings.shapeParameter4);
     }
   }
 

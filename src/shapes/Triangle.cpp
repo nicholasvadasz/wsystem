@@ -1,21 +1,21 @@
 #include "Triangle.h"
+#include <cstdlib>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
 #include <iostream>
 #include <stdlib.h>
-#include <cstdlib>
 #define NUM_COLUMNS 10
 
-void Triangle::updateParams(int param1, int param2) {
+void Triangle::updateParams(int param1, int param2, int param3, int param4) {
   m_vertexData = std::vector<float>();
   m_param1 = param1;
-  if (m_param2 != param2) {
-    triggerSeedChange();
-    m_param2 = param2;
-  }
+  m_param2 = param2;
+  m_param3 = param3;
+  m_param4 = param4;
   if (randomSeedValues.size() == 0) {
     triggerSeedChange();
   } else {
+    justTheVertices.clear();
     setVertexData();
   }
 }
@@ -25,12 +25,12 @@ void Triangle::triggerSeedChange() {
   for (int i = 0; i < NUM_COLUMNS; i++) {
     std::vector<uint32_t> seedValues;
     for (int j = 0; j < 8; j++) {
-      seedValues.push_back(rand());
+      seedValues.push_back(arc4random());
     }
     randomSeedValues.push_back(seedValues);
   }
-  std::cout << "Seed changed" << std::endl;
   justTheVertices.clear();
+  m_vertexData.clear();
   setVertexData();
 }
 
@@ -139,6 +139,8 @@ void Triangle::setVertexData() {
     }
     basePoints.push_back(base);
   }
+  float percentOfColumnsToLoad = m_param3 / 50.0f;
+  int numColumnsToLoad = (int)(percentOfColumnsToLoad * NUM_COLUMNS);
   for (int i = 0; i < basePoints.size(); i++) {
     float xAngle = (float)(randomSeedValues[i][0] % 100) * M_PI / 180;
     if (randomSeedValues[i][1] % 2 == 0) {
@@ -162,9 +164,11 @@ void Triangle::setVertexData() {
       basePoints[i][j] -= glm::vec3(0.0f, .5f, 0.0f);
     }
   }
-  for (int i = 0; i < basePoints.size(); i++) {
-    float height = (float)(randomSeedValues[i][4] % 100) / 100 + 0.5;
-    float splitPoint = (float)(randomSeedValues[i][5] % 60) / 100 + 0.2;
+  for (int i = 0; i < numColumnsToLoad; i++) {
+    float height =
+        (float)(randomSeedValues[i][4] % 100) / 100 + m_param1 / 50.0f;
+    float splitPoint =
+        (float)(randomSeedValues[i][5] % 60) / 100 + m_param2 / 83.0f;
     float growOutAmount = (float)(randomSeedValues[i][6] % 20) / 100 + 0.1;
     bool pointyTop = randomSeedValues[i][7] % 2;
     makeColumn(basePoints[i], height, splitPoint, growOutAmount, true);
