@@ -58,7 +58,9 @@ void MainWindow::setupUI() {
   width_spacer->setFont(font);
 
   exportObj = new QPushButton();
-  exportObj->setText(QStringLiteral("Export to Obj"));
+  exportSeedData = new QPushButton();
+  exportObj->setText(QStringLiteral("Export to OBJ"));
+  exportSeedData->setText(QStringLiteral("Export Seed Data"));
 
   // Create button controls to toggle 3D shapes
   pointCB = new QRadioButton(); // Point button
@@ -177,13 +179,14 @@ void MainWindow::setupUI() {
   vLayout->addWidget(param4_label);
   vLayout->addWidget(p4Layout);
   vLayout->addWidget(exportObj);
+  vLayout->addWidget(exportSeedData);
   vLayout->addWidget(showWireframeNormals);
 
   connectParam1();
   connectParam2();
   connectWireframeNormals();
   connectExportObj();
-
+  connectSeedData();
 }
 
 //******************************** Handles Parameter 1 UI Changes
@@ -221,8 +224,16 @@ void MainWindow::connectExportObj(){
     connect(exportObj, &QPushButton::released, this, &MainWindow::onExportObj);
 }
 
+void MainWindow::connectSeedData(){
+    connect(exportSeedData, &QPushButton::released, this, &MainWindow::onExportSeedData);
+}
+
 void MainWindow::onExportObj(){
     glWidget->writeFile();
+}
+
+void MainWindow::onExportSeedData(){
+    glWidget->writeSeedData();
 }
 
 

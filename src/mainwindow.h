@@ -30,6 +30,7 @@ private:
   QSpinBox *p4Box;
 
   QPushButton *exportObj;
+  QPushButton *exportSeedData;
 
   QCheckBox *showWireframeNormals;
 
@@ -54,6 +55,7 @@ private:
   void connectCylinder();
   void connectCone();
   void connectExportObj();
+  void connectSeedData();
 
 
 private slots:
@@ -61,5 +63,6 @@ private slots:
   void onValChangeP2(int newValue);
   void onWireframeNormalsChange();
   void onExportObj();
+  void onExportSeedData();
 
 };

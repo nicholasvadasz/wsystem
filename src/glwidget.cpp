@@ -299,8 +299,6 @@ void GLWidget::initializeShapesAndParameters() {
   m_currParam2 = 1;
   m_triangle = new Triangle();
   m_triangle->updateParams(m_currParam1, m_currParam2);
-  globalFacesN = m_triangle->returnFacesN();
-  globalFacesV = m_triangle->returnFacesV();
 }
 
 QMatrix4x4 GLWidget::glmMatToQMat(glm::mat4x4 m) {
@@ -369,35 +367,8 @@ void GLWidget::updateView() {
 
 int GLWidget::writeFile() {
   std::ofstream myfile;
-  myfile.open("v.obj");
-  // clear the file
+  myfile.open("new.obj");
   myfile.clear();
-
-  // myfile << "o Cube\n";
-
-  // for (std::vector<Triangle::vertex> vs : globalFacesV) {
-  //   for (Triangle::vertex v : vs) {
-  //     myfile << "v " + std::to_string(v.v.x) + " " + std::to_string(v.v.y) +
-  //                   " " + std::to_string(v.v.z) + "\n";
-  //   }
-  // }
-
-  // for (std::vector<Triangle::normal> vn : globalFacesN) {
-  //   for (Triangle::normal n : vn) {
-  //     myfile << "vn " + std::to_string(n.n.x) + " " + std::to_string(n.n.y) +
-  //                   " " + std::to_string(n.n.z) + "\n";
-  //   }
-  // }
-
-  // myfile << "s 0\n";
-  // for (std::vector<Triangle::vertex> vs : globalFacesV) {
-  //   myfile << "f " + std::to_string(vs.at(0).vertexID) + "//" +
-  //                 std::to_string(vs.at(0).n.normalID) + " " +
-  //                 std::to_string(vs.at(1).vertexID) + "//" +
-  //                 std::to_string(vs.at(0).n.normalID) + " " +
-  //                 std::to_string(vs.at(2).vertexID) + "//" +
-  //                 std::to_string(vs.at(0).n.normalID) + "\n";
-  // }
   std::vector<glm::vec3> justTheVertices = m_triangle->getJustTheVertices();
   for (glm::vec3 v : justTheVertices) {
     myfile << "v " + std::to_string(v.x) + " " + std::to_string(v.y) + " " +
@@ -410,8 +381,23 @@ int GLWidget::writeFile() {
   }
 
   myfile.close();
-  std::cout << "writing file!" << std::endl;
+  std::cout << "Finished Writing Crystal OBJ" << std::endl;
   return 0;
+}
+
+int GLWidget::writeSeedData() {
+    std::ofstream myfile;
+    myfile.open("seed_data.txt");
+    myfile.clear();
+    std::vector<std::vector<uint32_t>> curSeedValues = m_triangle->getSeedValues();
+    for (std::vector<uint32_t> base: curSeedValues) {
+        for (uint32_t value: base){
+            myfile << std::to_string(value) << "\n";
+        }
+    }
+    myfile.close();
+    std::cout << "Finished Writing Seed Data" << std::endl;
+    return 0;
 }
 
 /* -----------------------------------------------

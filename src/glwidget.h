@@ -20,10 +20,7 @@ public:
   ~GLWidget();
   void settingsChange();
   int writeFile();
-
-   std::vector<std::vector<Triangle::vertex>> globalFacesV;
-   std::vector<std::vector<Triangle::normal>> globalFacesN;
-   std::vector<int> objSeparator;
+  int writeSeedData();
 
 
 protected:
