@@ -14,6 +14,12 @@ public:
   std::vector<std::vector<uint32_t>> getSeedValues() {
     return randomSeedValues;
   }
+  struct line {
+    glm::vec2 start;
+    glm::vec2 end;
+  };
+  std::vector<std::vector<glm::vec3>> topBasePoints;
+  std::vector<std::vector<glm::vec3>> tempTopBasePoints;
 
 private:
   void makeTriangle(glm::vec3 bottomLeft, glm::vec3 bottomRight, glm::vec3 top);

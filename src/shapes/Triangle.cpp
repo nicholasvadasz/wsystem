@@ -3,6 +3,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
 #include <iostream>
+#include <map>
 #include <stdlib.h>
 #define NUM_COLUMNS 10
 
@@ -96,6 +97,7 @@ void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
   for (int i = 0; i < basePoints.size(); i++) {
     topPoints.push_back(basePoints[i] + growthDirection * height * splitPoint);
   }
+  tempTopBasePoints.push_back(topPoints);
   glm::vec3 middleTopPoint = glm::vec3(0.0f);
   for (int i = 0; i < topPoints.size(); i++) {
     middleTopPoint += topPoints[i];
@@ -128,50 +130,112 @@ void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
 }
 
 void Triangle::setVertexData() {
-  glm::vec3 baseCenter = glm::vec3(0.0f, 0.0f, 0.0f);
-  std::vector<std::vector<glm::vec3>> basePoints =
-      std::vector<std::vector<glm::vec3>>();
-  for (int i = 0; i < NUM_COLUMNS; i++) {
-    std::vector<glm::vec3> base = std::vector<glm::vec3>();
-    for (int j = 0; j < 4; j++) {
-      base.push_back(baseCenter + glm::vec3(0.2f * cos(j * M_PI / 2), 0.0f,
-                                            0.2f * sin(j * M_PI / 2)));
+  // first, create an lsystem that draws a series of lines
+  std::string axiom = "F";
+  std::map<char, std::string> rules;
+  rules['F'] = "F+G";
+  rules['G'] = "F-G";
+  glm::vec2 start = glm::vec2(0.0f, 0.0f); // this is on the (x, z) plane
+  float length = .2f;
+  for (int i = 0; i < 4; i++) {
+    std::string newAxiom = "";
+    for (int j = 0; j < axiom.length(); j++) {
+      if (rules.find(axiom[j]) != rules.end()) {
+        newAxiom += rules[axiom[j]];
+      } else {
+        newAxiom += axiom[j];
+      }
     }
-    basePoints.push_back(base);
+    axiom = newAxiom;
   }
-  float percentOfColumnsToLoad = m_param3 / 50.0f;
-  int numColumnsToLoad = (int)(percentOfColumnsToLoad * NUM_COLUMNS);
-  for (int i = 0; i < basePoints.size(); i++) {
-    float xAngle = (float)(randomSeedValues[i][0] % 100) * M_PI / 180;
-    if (randomSeedValues[i][1] % 2 == 0) {
-      xAngle = -xAngle;
-    }
-    glm::mat4 rotationMatrix =
-        glm::rotate(glm::mat4(1.0f), xAngle, glm::vec3(1.0f, -1.0f, 0.0f));
-    float zAngle = (float)(randomSeedValues[i][2] % 100) * M_PI / 180;
-    if (randomSeedValues[i][3] % 2 == 0) {
-      zAngle = -zAngle;
-    }
-    rotationMatrix =
-        glm::rotate(rotationMatrix, zAngle, glm::vec3(0.0f, -1.0f, 1.0f));
-    for (int j = 0; j < basePoints[i].size(); j++) {
-      basePoints[i][j] =
-          glm::vec3(rotationMatrix * glm::vec4(basePoints[i][j], 1.0f));
+  std::cout << axiom << std::endl;
+  std::vector<line> lines = std::vector<line>();
+  glm::vec2 currentPos = start;
+  glm::vec2 currentDir = glm::vec2(0.0f, 1.0f);
+  for (int i = 0; i < axiom.length(); i++) {
+    if (axiom[i] == 'F') {
+      glm::vec2 newPos = currentPos + currentDir * length;
+      lines.push_back(line{currentPos, newPos});
+      currentPos = newPos;
+    } else if (axiom[i] == '+') {
+      // rotate 90 degrees clockwise
+      if (currentDir.x == 0.0f) {
+        if (currentDir.y == 1.0f) {
+          currentDir = glm::vec2(1.0f, 0.0f);
+        } else {
+          currentDir = glm::vec2(-1.0f, 0.0f);
+        }
+      } else {
+        if (currentDir.x == 1.0f) {
+          currentDir = glm::vec2(0.0f, -1.0f);
+        } else {
+          currentDir = glm::vec2(0.0f, 1.0f);
+        }
+      }
+    } else if (axiom[i] == '-') {
+      if (currentDir.x == 0.0f) {
+        if (currentDir.y == 1.0f) {
+          currentDir = glm::vec2(-1.0f, 0.0f);
+        } else {
+          currentDir = glm::vec2(1.0f, 0.0f);
+        }
+      } else {
+        if (currentDir.x == 1.0f) {
+          currentDir = glm::vec2(0.0f, 1.0f);
+        } else {
+          currentDir = glm::vec2(0.0f, -1.0f);
+        }
+      }
+    } else if (axiom[i] == 'G') {
+      glm::vec2 newPos = currentPos + currentDir * length;
+      lines.push_back(line{currentPos, newPos});
+      currentPos = newPos;
     }
   }
-  for (int i = 0; i < basePoints.size(); i++) {
-    for (int j = 0; j < basePoints[i].size(); j++) {
-      basePoints[i][j] -= glm::vec3(0.0f, .5f, 0.0f);
+  for (int i = 0; i < lines.size(); i++) {
+    if (lines[i].start.x != lines[i].end.x) {
+      // we know x is the on changing, so we use this to offset the points when
+      // making the column
+      // makeTile(glm::vec3(lines[i].end.x, 0.0f, lines[i].end.y),
+      //          glm::vec3(lines[i].end.x, 0.0f, lines[i].end.y + .1f),
+      //          glm::vec3(lines[i].start.x, 0.0f, lines[i].start.y),
+      //          glm::vec3(lines[i].start.x, 0.0f, lines[i].start.y + .1f));
+      std::vector<glm::vec3> points = std::vector<glm::vec3>();
+      points.push_back(glm::vec3(lines[i].end.x, 0.0f, lines[i].end.y + .1f));
+      points.push_back(glm::vec3(lines[i].end.x, 0.0f, lines[i].end.y));
+      points.push_back(glm::vec3(lines[i].start.x, 0.0f, lines[i].start.y));
+      points.push_back(
+          glm::vec3(lines[i].start.x, 0.0f, lines[i].start.y + .1f));
+      makeColumn(points, .1f, 1.0f, 0, false);
+    } else {
+      // std::vector<glm::vec3> points = std::vector<glm::vec3>();
+      // points.push_back(glm::vec3(lines[i].end.x, 0.0f, lines[i].end.y));
+      // points.push_back(glm::vec3(lines[i].end.x + .1f, 0.0f,
+      // lines[i].end.y)); points.push_back(
+      //     glm::vec3(lines[i].start.x + .1f, 0.0f, lines[i].start.y));
+      // points.push_back(glm::vec3(lines[i].start.x, 0.0f, lines[i].start.y));
+      // makeColumn(points, .1f, 1.0f, 0, false);
     }
   }
-  for (int i = 0; i < numColumnsToLoad; i++) {
-    float height =
-        (float)(randomSeedValues[i][4] % 100) / 100 + m_param1 / 50.0f;
-    float splitPoint =
-        (float)(randomSeedValues[i][5] % 60) / 100 + m_param2 / 83.0f;
-    float growOutAmount = (float)(randomSeedValues[i][6] % 20) / 100 + 0.1;
-    bool pointyTop = randomSeedValues[i][7] % 2;
-    makeColumn(basePoints[i], height, splitPoint, growOutAmount, true);
+  // set topBasePoints to be whatever is currently in tempTopBasePoints
+  topBasePoints = tempTopBasePoints;
+  for (int i = 0; i < 5; i++) {
+    // push every single x value in topBasePoints .1f in the positive x
+    // direction
+    for (int j = 0; j < topBasePoints.size(); j++) {
+      for (int k = 0; k < topBasePoints[j].size(); k++) {
+        topBasePoints[j][k].x += .1f;
+        topBasePoints[j][k].z += .1f;
+      }
+    }
+    // clear tempTopBasePoints
+    tempTopBasePoints.clear();
+    // make a new column for every point in topBasePoints
+    for (int j = 0; j < topBasePoints.size(); j++) {
+      makeColumn(topBasePoints[j], .1f, 1.0f, 0, false);
+    }
+    // set topBasePoints to be whatever is currently in tempTopBasePoints
+    topBasePoints = tempTopBasePoints;
   }
 }
 
