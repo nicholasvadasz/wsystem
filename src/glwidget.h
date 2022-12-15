@@ -84,6 +84,7 @@ private:
   int m_currParam2;
   int m_currParam3; // currently unused
   int m_currParam4; // currently unused
+  bool m_useHex;
 
   bool m_currShowWireframeNormals = true;
 };

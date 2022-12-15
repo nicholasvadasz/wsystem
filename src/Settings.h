@@ -15,6 +15,7 @@ struct Settings {
   int shapeParameter2 = 1;
   int shapeParameter3 = 1;
   int shapeParameter4 = 1;
+  bool useHex = false;
   bool showWireframeNormals = true;
 };
 

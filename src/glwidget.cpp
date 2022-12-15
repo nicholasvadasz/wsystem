@@ -301,7 +301,7 @@ void GLWidget::initializeShapesAndParameters() {
   m_currParam4 = 25;
   m_triangle = new Triangle();
   m_triangle->updateParams(m_currParam1, m_currParam2, m_currParam3,
-                           m_currParam4);
+                           m_currParam4, false);
 }
 
 QMatrix4x4 GLWidget::glmMatToQMat(glm::mat4x4 m) {
@@ -433,7 +433,7 @@ void GLWidget::settingsChange() {
   if (settings.shapeParameter1 != m_currParam1 ||
       settings.shapeParameter2 != m_currParam2 ||
       settings.shapeParameter3 != m_currParam3 ||
-      settings.shapeParameter4 != m_currParam4) {
+      settings.shapeParameter4 != m_currParam4){
     m_currParam1 = settings.shapeParameter1;
     m_currParam2 = settings.shapeParameter2;
     m_currParam3 = settings.shapeParameter3;
@@ -442,7 +442,8 @@ void GLWidget::settingsChange() {
     if (settings.shapeType == SHAPE_TRIANGLE) {
       m_triangle->updateParams(
           settings.shapeParameter1, settings.shapeParameter2,
-          settings.shapeParameter3, settings.shapeParameter4);
+          settings.shapeParameter3, settings.shapeParameter4,
+                  false);
     }
   }
 

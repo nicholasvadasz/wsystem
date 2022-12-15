@@ -6,12 +6,14 @@
 #include <stdlib.h>
 #define NUM_COLUMNS 10
 
-void Triangle::updateParams(int param1, int param2, int param3, int param4) {
+void Triangle::updateParams(int param1, int param2, int param3, int param4, bool useHex) {
   m_vertexData = std::vector<float>();
   m_param1 = param1;
   m_param2 = param2;
   m_param3 = param3;
   m_param4 = param4;
+  m_useHex = useHex;
+
   if (randomSeedValues.size() == 0) {
     triggerSeedChange();
   } else {
@@ -25,7 +27,7 @@ void Triangle::triggerSeedChange() {
   for (int i = 0; i < NUM_COLUMNS; i++) {
     std::vector<uint32_t> seedValues;
     for (int j = 0; j < 8; j++) {
-      seedValues.push_back(arc4random());
+      seedValues.push_back(rand());
     }
     randomSeedValues.push_back(seedValues);
   }
@@ -128,6 +130,8 @@ void Triangle::makeColumn(std::vector<glm::vec3> basePoints, float height,
 }
 
 void Triangle::setVertexData() {
+    m_useHex = true;
+    if(!m_useHex){
   glm::vec3 baseCenter = glm::vec3(0.0f, 0.0f, 0.0f);
   std::vector<std::vector<glm::vec3>> basePoints =
       std::vector<std::vector<glm::vec3>>();
@@ -172,7 +176,30 @@ void Triangle::setVertexData() {
     float growOutAmount = (float)(randomSeedValues[i][6] % 20) / 100 + 0.1;
     bool pointyTop = randomSeedValues[i][7] % 2;
     makeColumn(basePoints[i], height, splitPoint, growOutAmount, true);
+
   }
+    }else{
+  setHexagonData();
+
+  int i = 0;
+    for (face j: allHexagonFaces){
+        i += 1;
+        std::vector<glm::vec3> myVecs;
+        for (int p = 0; p < 6; p++){
+            myVecs.push_back(j.vertexVector[p].v);
+        }
+        if (i == randomSeedValues.size()){
+            i = 0;
+        }
+        float height =
+            (float)(randomSeedValues[i][4] % 100) / 100 + m_param1 / 50.0f;
+        float splitPoint =
+            (float)(randomSeedValues[i][5] % 60) / 100 + m_param2 / 83.0f;
+        float growOutAmount = (float)(randomSeedValues[i][6] % 20) / 100 + 0.1;
+        bool pointyTop = randomSeedValues[i][7] % 2;
+        makeColumn(myVecs, (height/1.5f) * j.size, splitPoint, growOutAmount, true);
+    }
+    }
 }
 
 // Inserts a glm::vec3 into a vector of floats.

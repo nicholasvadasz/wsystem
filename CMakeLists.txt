@@ -30,6 +30,7 @@ add_executable(${PROJECT_NAME}
   src/Settings.cpp
   src/glwidget.cpp
   src/shapes/Triangle.cpp
+  src/shapes/seed_generation.cpp
 
   src/mainwindow.h
   src/Settings.h
